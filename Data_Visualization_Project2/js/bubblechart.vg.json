@@ -1,0 +1,231 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+    "title": "Area and Population Density for each Country (2022)",
+    "data": {
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
+    },
+    "params": [
+        {
+            "name": "Select_continent",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "North America",
+                    "South America",
+                    "Europe",
+                    "Africa",
+                    "Asia",
+                    "Oceania"
+                ],
+                "labels": [
+                    "Show All",
+                    "North America",
+                    "South America",
+                    "Europe",
+                    "Africa",
+                    "Asia",
+                    "Oceania"
+                ],
+                "name": "Continent Selection: "
+            }
+        },
+        {
+            "name": "Population_Above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 100000000,
+                "step": 1000000,
+                "name": "Minimum Population: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Area > 0"
+        },
+        {
+            "filter": "datum.Density > 0"
+        },
+        {
+            "filter": "Select_continent == null || datum.Continent == Select_continent"
+        },
+        {
+            "filter": "datum['2022Population'] > Population_Above"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "Area",
+            "type": "quantitative",
+            "title": "Area of Country (km^2)",
+            "axis": {
+                "tickCount": 7
+            },
+            "scale": {
+                "type": "log",
+                "domain": [
+                    10,
+                    100000000
+                ]
+            }
+        },
+        "y": {
+            "field": "Density",
+            "type": "quantitative",
+            "title": "Population Density per  km^2",
+            "axis": {
+                "tickCount": 5
+            },
+            "scale": {
+                "type": "log",
+                "domain": [
+                    0.01,
+                    100000
+                ]
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": "circle",
+            "encoding": {
+                "size": {
+                    "field": "2022Population",
+                    "type": "quantitative",
+                    "title": "2022 Population",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            5000000,
+                            100000000,
+                            500000000,
+                            1000000000
+                        ],
+                        "range": [
+                            50,
+                            150,
+                            200,
+                            350,
+                            500
+                        ]
+                    },
+                    "legend": {
+                        "format": ".1s"
+                    }
+                },
+                "color": {
+                    "field": "Continent",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "North America",
+                            "South America",
+                            "Europe",
+                            "Africa",
+                            "Asia",
+                            "Oceania"
+                        ],
+                        "range": [
+                            "#e41a1c",
+                            "#984ea3",
+                            "#ff7f00",
+                            "#a6cee3",
+                            "#377eb8",
+                            "#a65628"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "value": 0.7
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Continent",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "2022Population",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "2022 Population"
+                    },
+                    {
+                        "field": "Area",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Area (km^2)"
+                    },
+                    {
+                        "field": "Density",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Population Density per km^2"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -12,
+                "fontSize": 10,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "field": "Country",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['Country'] == 'Malaysia' || datum['Country'] =='Australia'",
+                        "value": 1
+                    },
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Continent",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "2022Population",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "2022 Population"
+                    },
+                    {
+                        "field": "Area",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Area (km^2)"
+                    },
+                    {
+                        "field": "Density",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Population Density per km^2"
+                    }
+                ]
+            }
+        }
+    ]
+}
