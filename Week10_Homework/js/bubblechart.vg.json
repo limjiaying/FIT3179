@@ -4,7 +4,7 @@
     "height": 300,
     "title": "Area and Population Density for each Country (2022)",
     "data": {
-        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week9_Homework/data/world_population.csv"
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
     },
     "params": [
         {
@@ -31,6 +31,17 @@
                 ],
                 "name": "Continent Selection: "
             }
+        },
+        {
+            "name": "Population_Above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 100000000,
+                "step": 1000000,
+                "name": "Minimum Population: "
+            }
         }
     ],
     "transform": [
@@ -42,6 +53,9 @@
         },
         {
             "filter": "Select_continent == null || datum.Continent == Select_continent"
+        },
+        {
+            "filter": "datum['2022Population'] > Population_Above"
         }
     ],
     "encoding": {
@@ -81,7 +95,7 @@
             "mark": "circle",
             "encoding": {
                 "size": {
-                    "field": "2022_Population",
+                    "field": "2022Population",
                     "type": "quantitative",
                     "title": "2022 Population",
                     "scale": {
@@ -139,7 +153,7 @@
                         "type": "nominal"
                     },
                     {
-                        "field": "2022_Population",
+                        "field": "2022Population",
                         "type": "quantitative",
                         "format": ",",
                         "title": "2022 Population"
@@ -193,7 +207,7 @@
                         "type": "nominal"
                     },
                     {
-                        "field": "2022_Population",
+                        "field": "2022Population",
                         "type": "quantitative",
                         "format": ",",
                         "title": "2022 Population"
