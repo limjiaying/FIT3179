@@ -1,0 +1,93 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "World Population Percentage for each Continent",
+    "data": {
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "arc",
+                "stroke": "#fff",
+                "tooltip": true
+            },
+            "encoding": {
+                "theta": {
+                    "aggregate": "sum",
+                    "field": "WorldPopulationPercentage"
+                },
+                "color": {
+                    "field": "Continent",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "North America",
+                            "South America",
+                            "Europe",
+                            "Africa",
+                            "Asia",
+                            "Oceania"
+                        ],
+                        "range": [
+                            "#e41a1c",
+                            "#984ea3",
+                            "#ff7f00",
+                            "#a6cee3",
+                            "#377eb8",
+                            "#a65628"
+                        ]
+                    },
+                    "legend": null
+                }
+            }
+        },
+        {
+            "transform": [
+                {
+                    "calculate": "datum.WorldPopulationPercentage*1 ",
+                    "as": "WorldPopulationPercentage"
+                },
+                {
+                    "window": [
+                        {
+                            "op": "rank",
+                            "as": "ranking"
+                        }
+                    ],
+                    "sort": [
+                        {
+                            "field": "WorldPopulationPercentage",
+                            "order": "descending"
+                        }
+                    ]
+                },
+                {
+                    "filter": "datum.ranking == 1"
+                },
+                {
+                    "calculate": "'The population percentage of Asia which has 48 countries is 59%'",
+                    "as": "text_annotation"
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": -8,
+                "dy": -8,
+                "baseline": "middle",
+                "fontSize": 10
+            },
+            "encoding": {
+                "text": {
+                    "field": "text_annotation"
+                }
+            }
+        }
+    ],
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        }
+    }
+}

@@ -7,19 +7,55 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   
   <!-- CSS file -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
 
 </head>
 <body>
-  <h1>World Population</h1>
-  <p id="intro">The world population currently stands at <span id="figure">7.98 billion</span>
-    , and is estimated to hit <span id="figure">8 billion</span> by end of the year 2022.</p>
+  <div class="pure-g">
+    <div class="pure-u-1">
+      <h1>World Population</h1>
+      <p>The world population currently stands at <span id="figure">7.98 billion</span>
+    , and is estimated to hit <span id="figure">8 billion</span> by end of the year 2022. The world's population continues to increase by roughly <span class="blue">140 people per minute</span>, with births outweighing deaths in most countries.</p>
+   
+    </div>
+    
+    <div class="pure-u-1">
+      <div id="choropleth_map"></div>
+    </div>
+
+    <div class="pure-u-1-2">
+      <div id="bubble_chart"></div>
+    </div>
+
+    <div class="pure-u-1-2">
+      <p class="text">The population density of a country is the number of population per unit of total land area of the country. It can affect
+        a country in different ways such as economic growth qnd environmental impact.  
+    </div>
+
+    <div class="pure-u-1-2">
+      <div id="percentage"></div>
+    </div>
+
+    <div class="pure-u-1-2">
+      <div id="growth_rate"></div>
+    </div>
+
+    <div class="pure-u-1-2">
+      <p>The population of Asia has took up more than 50% of the world's population percentage. It is clear that India and China are the 
+        countries that contributes the most to this. 
+      </p>
+    </div>
+
+   
+  </div>
   
-<div id="choropleth_map"></div>
-
-<div id="bubble_chart"></div>
-
+  
 <script type="text/javascript">
 
   var spec2 = "js/map.vg.json";
@@ -27,8 +63,18 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
+  var spec2 = "js/percentage.vg.json";
+  vegaEmbed('#percentage', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
   var spec2 = "js/bubblechart.vg.json";
   vegaEmbed('#bubble_chart', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "js/growthrate.vg.json";
+  vegaEmbed('#growth_rate', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>

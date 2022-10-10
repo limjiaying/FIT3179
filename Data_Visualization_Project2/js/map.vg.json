@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "World Population in 2022",
-    "width": 500,
-    "height": 300,
+    "width": 800,
+    "height": 400,
     "data": {
         "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/js/output.json",
         "format": {
@@ -42,7 +42,7 @@
             },
             "mark": {
                 "type": "geoshape",
-                "fill": "lightblue"
+                "fill": "skyblue"
             }
         },
         {
@@ -65,7 +65,7 @@
                     "lookup": "properties.NAME",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
+                            "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
                         },
                         "key": "Country",
                         "fields": [
@@ -117,5 +117,11 @@
                 ]
             }
         }
-    ]
+    ],
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        }
+    }
 }

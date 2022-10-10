@@ -1,10 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 300,
+    "width": 400,
+    "height": 250,
     "title": "Area and Population Density for each Country (2022)",
     "data": {
-        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
     },
     "params": [
         {
@@ -192,7 +192,7 @@
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum['Country'] == 'Malaysia' || datum['Country'] =='Australia'",
+                        "test": "datum['Country'] == 'Malaysia' || datum['Country'] =='Australia' || datum['Country'] =='India' || datum['Country'] =='China'",
                         "value": 1
                     },
                     "value": 0
@@ -227,5 +227,11 @@
                 ]
             }
         }
-    ]
+    ],
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        }
+    }
 }
