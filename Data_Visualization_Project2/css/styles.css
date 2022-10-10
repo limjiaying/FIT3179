@@ -7,10 +7,7 @@ h1 {
 
 #choropleth_map,
 #bubble_chart {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    margin-left: 200px;
     margin-top: 25px;
 }
 

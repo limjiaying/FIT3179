@@ -4,7 +4,7 @@
     "height": 300,
     "title": "Area and Population Density for each Country (2022)",
     "data": {
-        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
     },
     "params": [
         {

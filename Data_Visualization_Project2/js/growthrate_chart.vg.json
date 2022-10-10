@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bar chart that sorts the y-values by the x-values.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Rank <= 10"
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "y": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": "-x"
+        },
+        "x": {
+            "field": "GrowthRate",
+            "type": "quantitative",
+            "title": "Growth rate"
+        },
+        "tooltip": [
+            {
+                "field": "Country",
+                "type": "nominal"
+            },
+            {
+                "field": "GrowthRate",
+                "type": "quantitative"
+            }
+        ]
+    }
+}
