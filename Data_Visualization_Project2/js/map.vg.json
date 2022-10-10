@@ -1,10 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "World Population in 2022",
-    "width": 800,
-    "height": 400,
+    "width": 500,
+    "height": 300,
     "data": {
-        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/js/output.json",
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/js/output.json",
         "format": {
             "type": "topojson",
             "feature": "ne_110m_admin_0_countries"
@@ -34,7 +34,7 @@
         },
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/js/output.json",
+                "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/js/output.json",
                 "format": {
                     "type": "topojson",
                     "feature": "oceans"
@@ -47,7 +47,7 @@
         },
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/js/output.json",
+                "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/js/output.json",
                 "format": {
                     "type": "topojson",
                     "feature": "ne_110m_graticules_30"
@@ -65,13 +65,17 @@
                     "lookup": "properties.NAME",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
+                            "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/data/world_population.csv"
                         },
                         "key": "Country",
                         "fields": [
-                            "2022_Population"
+                            "2022Population"
                         ]
                     }
+                },
+                {
+                    "calculate": "datum['2022Population'] / 1000000",
+                    "as": "Population(million)"
                 }
             ],
             "mark": {
@@ -80,15 +84,15 @@
             },
             "encoding": {
                 "color": {
-                    "field": "2022_Population",
+                    "field": "Population(million)",
                     "type": "quantitative",
                     "scale": {
                         "type": "threshold",
                         "domain": [
-                            5000000,
-                            100000000,
-                            500000000,
-                            1000000000
+                            5,
+                            100,
+                            500,
+                            1000
                         ],
                         "range": [
                             "#edf8e9",
@@ -96,9 +100,6 @@
                             "#74c476",
                             "#238b45"
                         ]
-                    },
-                    "legend": {
-                        "format": ".1s"
                     }
                 },
                 "tooltip": [
@@ -108,9 +109,10 @@
                         "title": "Country"
                     },
                     {
-                        "field": "2022_Population",
+                        "field": "Population(million)",
                         "type": "quantitative",
-                        "title": "2022 Population"
+                        "format": ".3s",
+                        "title": "2022 Population(million)"
                     }
                 ]
             }
