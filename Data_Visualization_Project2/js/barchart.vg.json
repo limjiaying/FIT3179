@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
+    },
+    "title": "Average Increase in Population per year Before and After Pandemic",
+    "transform": [
+        {
+            "calculate": "(datum['2022Population']-datum['2020Population'])/2",
+            "as": "After 2020"
+        },
+        {
+            "calculate": "(datum['2020Population']-datum['2010Population'])/10",
+            "as": "Before 2020"
+        },
+        {
+            "filter": "datum.Rank <= 10"
+        }
+    ],
+    "repeat": {
+        "layer": [
+            "After 2020",
+            "Before 2020"
+        ]
+    },
+    "spec": {
+        "mark": "bar",
+        "encoding": {
+            "x": {
+                "field": "Country",
+                "type": "nominal",
+                "axis": {
+                    "labelAngle": 45
+                }
+            },
+            "y": {
+                "field": {
+                    "repeat": "layer"
+                },
+                "type": "quantitative",
+                "title": "Population"
+            },
+            "color": {
+                "datum": {
+                    "repeat": "layer"
+                },
+                "title": "Increase of Population (per year)"
+            },
+            "xOffset": {
+                "datum": {
+                    "repeat": "layer"
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "Country",
+                    "type": "nominal"
+                },
+                {
+                    "field": "After 2020",
+                    "type": "quantitative"
+                },
+                {
+                    "field": "Before 2020",
+                    "type": "quantitative"
+                }
+            ]
+        }
+    },
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        }
+    }
+}
