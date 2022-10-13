@@ -13,7 +13,7 @@
             "as": "Before 2020"
         },
         {
-            "filter": "datum.Rank <= 15"
+            "filter": "datum.Rank <= 15 || datum.Country == 'Malaysia' || datum.Country == 'Australia'"
         }
     ],
     "spacing": 0,

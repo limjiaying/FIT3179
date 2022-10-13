@@ -28,7 +28,7 @@
             ]
         },
         {
-            "filter": "datum.ranking <= 10"
+            "filter": "datum.ranking <= 10 || datum.Country == 'Malaysia' || datum.Country == 'Australia'"
         }
     ],
     "encoding": {
