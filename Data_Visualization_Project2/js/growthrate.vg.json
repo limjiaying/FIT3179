@@ -80,10 +80,11 @@
             "mark": {
                 "type": "text",
                 "align": "right",
-                "xOffset": 10,
+                "xOffset": 15,
                 "yOffset": 15,
                 "aria": false,
-                "color": "white"
+                "color": "white",
+                "fontSize": 12
             },
             "encoding": {
                 "text": {

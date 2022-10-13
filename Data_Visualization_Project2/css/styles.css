@@ -88,6 +88,11 @@ p {
     font-weight: bold;
 }
 
+#Europe {
+    color: #ff7f00;
+    font-weight: bold;
+}
+
 .row:after {
     content: "";
     display: table;
