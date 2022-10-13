@@ -19,58 +19,114 @@
 <body>
   <div class="pure-g">
     <div class="pure-u-1">
-      <h1>World Population</h1>
+      <section>
+        <h1>World Population</h1>
       <p class="intro">The world population currently stands at <span id="figure">7.98 billion</span>
     , and is estimated to hit <span id="figure">8 billion</span> by end of the year 2022. The world's population continues to increase by roughly <span class="blue">140 people per minute</span>, with births outweighing deaths in most countries.</p>
+
+      </section>
    
+    </div>    
+
+    <div class="pure-u-1">
+      <section>
+        <div id="choropleth_map"></div>
+      </section>
+      
     </div>
     
-    <div class="pure-u-1">
-      <div id="choropleth_map"></div>
+  
+    <div class="pure-u-1-1">
+      <section>
+        <h2>World Population Percentage and Population Density</h2>
+        <div id="continent"></div>
+
+        <p class="text">The population of <span id="Asia">Asia</span> which is the largest continent with more than 40 countries has took up <span id="bold">more than 50%</span> of the world's population percentage. It is clear that <span id="Asia">India</span> and <span id="Asia">China</span> are the 
+            countries that contributes the most to this. While the smallest continent - <span id="Oceania">Oceania</span> with only 4 countries takes up
+            <span id="bold">less than 1%</span> of the world population percentage. 
+        </p>
+          
+        
+          <p class="text">
+            The population density of a country is the number of population per unit of total land area of the country. It can affect
+            a country in different ways in terms of economic growth and environmental impact. <span id="bold">High Population Density</span> can cause rapid economic and social development,
+            however, on the downside, it may result in overcrowding which can lead to destruction of the country's ecosystem.
+            <span id="bold">Low Population Density</span> can allow better nature exposure for the citizens, but may result in political and economic isolation. 
+            health care, which discourages people from living in an area. 
+            <!-- <div class="row">
+              <div class="column">
+                <div class="font">Low Population Density can be caused by poor bublic services, including education and 
+                  health care, which discourages people from living in an area. 
+                </div>
+                <div class="font">Advantages:
+                  <ul>
+                    <li class="font">Better nature exposure</li>
+                  </ul>
+                </div>
+                <div class="font">Disadvantages:
+                  <ul>
+                    <li class="font">Political and economic isolation</li>
+                    <li class="font">Results in overcrowding, which could lead to the destruction of the ecosystem</li>
+                  </ul>
+                </div>
+  
+              </div>
+              <div class="column">
+                <div class="font">High Population Density</div>
+                <div class="font">Advantages:
+                  <ul>
+                    <li class="font">Economic growth</li>
+                    <li class="font">Social Development</li>
+                  </ul>
+                </div>
+                <div class="font">Disadvantages:
+                  <ul>
+                    <li class="font">Deforestation</li>
+                    <li class="font">Results in overcrowding, which could lead to the destruction of the ecosystem</li>
+                  </ul>
+                </div>
+  
+              </div>
+            </div> -->
+            
+          </p>
+      
+        <p class="text small">Do click on the Continent legend to focus on each continent!</p>
+     
+      </section>
+        
     </div>
 
     <div class="pure-u-1-1">
-      <div id="continent"></div>
-    </div>
-
-    <div class="pure-u-1-2">
-      <p class="text1">The population of Asia has took up more than 50% of the world's population percentage. It is clear that India and China are the 
-        countries that contributes the most to this. 
-      </p>
-    </div>
-
-    <div class="pure-u-1-2">
+      <section>
+        <h2>Growth Rate</h2>
+        <div id="growth_rate"></div> 
+      <p class="text"> Population growth rate is the annual average rate of change of population size in a country. The chart visualizes the top 10 countries with
+          the highest growth rate at 2022. Most populated countries such as China and India are not included, this means that countries with high population
+          does not always have high growth rate. 
+        </p>
+      </section>
       
-      <p class="text1">
-        The population density of a country is the number of population per unit of total land area of the country. It can affect
-        a country in different ways such as economic growth qnd environmental impact.  
-      </p>
     </div>
-
+      
+  
     <div class="pure-u-1">
-    <h2>
-      Did COVID_19 affect the world's population growth?
-    </h2>
+      <section>
+        <h2>
+          Did COVID_19 affect the world's population growth?
+        </h2>
+        <div id="barchart"></div>
+      </section>  
+
   </div>
-    <div class="pure-u-1">
-      <div id="bubblechart"></div>
-    </div>
-
-    <div class="pure-u-1-2">
-      <div id="growth_rate"></div>
-    </div>
-
-    <div class="pure-u-1-2">
-      <p class="text2"> Population growth rate is the annual average rate of change of population size in a country. The chart visualizes the top 10 countries with
-        the highest growth rate at 2022. Most populated countries such as China and India are not included, this means that countries with high population
-        does not always have high growth rate. 
-      </p>
-    </div>
-
     
-
+  
+  
    
-  </div>
+   
+
+  
+    
   
   
 <script type="text/javascript">
@@ -90,8 +146,8 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  var spec2 = "js/bubblechart.vg.json";
-  vegaEmbed('#bubblechart', spec2).then(function(result) {
+  var spec2 = "js/barchart.vg.json";
+  vegaEmbed('#barchart', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 

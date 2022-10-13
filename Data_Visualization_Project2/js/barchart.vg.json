@@ -3,7 +3,6 @@
     "data": {
         "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
     },
-    "title": "Average Increase in Population per year Before and After Pandemic",
     "transform": [
         {
             "calculate": "(datum['2022Population']-datum['2020Population'])/2",
@@ -14,60 +13,115 @@
             "as": "Before 2020"
         },
         {
-            "filter": "datum.Rank <= 10"
+            "filter": "datum.Rank <= 15"
         }
     ],
-    "repeat": {
-        "layer": [
-            "After 2020",
-            "Before 2020"
-        ]
-    },
-    "spec": {
-        "mark": "bar",
-        "encoding": {
-            "x": {
-                "field": "Country",
-                "type": "nominal",
-                "axis": {
-                    "labelAngle": 45
-                }
-            },
-            "y": {
-                "field": {
-                    "repeat": "layer"
+    "spacing": 0,
+    "hconcat": [
+        {
+            "width": 400,
+            "title": "Before 2020",
+            "mark": "bar",
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "axis": null
                 },
-                "type": "quantitative",
-                "title": "Population"
-            },
-            "color": {
-                "datum": {
-                    "repeat": "layer"
+                "x": {
+                    "field": "Before 2020",
+                    "type": "quantitative",
+                    "title": "population",
+                    "axis": {
+                        "format": "s"
+                    },
+                    "sort": "descending"
                 },
-                "title": "Increase of Population (per year)"
+                "color": {
+                    "value": "skyBlue"
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Before 2020",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "After 2020",
+                        "type": "quantitative"
+                    }
+                ]
+            }
+        },
+        {
+            "width": 30,
+            "view": {
+                "stroke": null
             },
-            "xOffset": {
-                "datum": {
-                    "repeat": "layer"
-                }
+            "mark": {
+                "type": "text",
+                "align": "center"
             },
-            "tooltip": [
-                {
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "ordinal",
+                    "axis": null
+                },
+                "text": {
                     "field": "Country",
                     "type": "nominal"
-                },
-                {
-                    "field": "After 2020",
-                    "type": "quantitative"
-                },
-                {
-                    "field": "Before 2020",
-                    "type": "quantitative"
                 }
-            ]
+            }
+        },
+        {
+            "width": 400,
+            "title": "After 2020",
+            "mark": "bar",
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "title": null,
+                    "axis": null
+                },
+                "x": {
+                    "field": "After 2020",
+                    "type": "quantitative",
+                    "title": "population",
+                    "axis": {
+                        "format": "s"
+                    }
+                },
+                "color": {
+                    "value": "orange"
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Before 2020",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "After 2020",
+                        "type": "quantitative"
+                    }
+                ]
+            }
         }
-    },
+    ],
     "config": {
+        "view": {
+            "stroke": null
+        },
+        "axis": {
+            "grid": false
+        },
         "title": {
             "font": "sans-serif",
             "fontSize": 16

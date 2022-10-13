@@ -8,9 +8,9 @@
     },
     "hconcat": [
         {
-            "width": 450,
+            "width": "container",
             "height": 250,
-            "title": "World Porpulation Percentage",
+            "title": "World Population Percentage",
             "params": [
                 {
                     "name": "continent",
@@ -68,7 +68,7 @@
             }
         },
         {
-            "width": 450,
+            "width": "container",
             "height": 250,
             "title": "Area and Population Density of Countries",
             "transform": [

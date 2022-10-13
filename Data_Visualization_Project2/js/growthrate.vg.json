@@ -6,7 +6,7 @@
     },
     "width": "container",
     "height": {
-        "step": 40
+        "step": 50
     },
     "transform": [
         {
@@ -32,11 +32,14 @@
         }
     ],
     "encoding": {
-        "y": {
-            "field": "Country",
-            "type": "nominal"
-        },
         "x": {
+            "field": "Country",
+            "type": "nominal",
+            "axis": {
+                "labelAngle": 45
+            }
+        },
+        "y": {
             "field": "Growth Rate",
             "type": "quantitative",
             "axis": {
@@ -68,9 +71,7 @@
         {
             "mark": {
                 "type": "bar",
-                "yOffset": 5,
-                "cornerRadiusEnd": 2,
-                "height": {
+                "width": {
                     "band": 0.7
                 }
             }
@@ -79,8 +80,8 @@
             "mark": {
                 "type": "text",
                 "align": "right",
-                "xOffset": -5,
-                "yOffset": 5,
+                "xOffset": 10,
+                "yOffset": 15,
                 "aria": false,
                 "color": "white"
             },
