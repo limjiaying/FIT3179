@@ -3,6 +3,7 @@
     "autosize": {
         "resize": true
     },
+    "background": "#fff8e7",
     "data": {
         "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Data_Visualization_Project2/data/world_population.csv"
     },

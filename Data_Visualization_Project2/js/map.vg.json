@@ -3,6 +3,7 @@
     "title": "World Population in 2022",
     "width": "container",
     "height": 400,
+    "background": "#fff8e7",
     "data": {
         "url": "https://raw.githubusercontent.com/limjiaying/FIT3179/main/Week10_Homework/js/output.json",
         "format": {
