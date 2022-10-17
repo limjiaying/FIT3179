@@ -73,7 +73,12 @@
             "mark": {
                 "type": "bar",
                 "width": {
-                    "band": 0.7
+                    "band": 0.75
+                }
+            },
+            "encoding": {
+                "color": {
+                    "value": "#03045e"
                 }
             }
         },

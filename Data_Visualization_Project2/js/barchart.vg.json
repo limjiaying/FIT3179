@@ -22,46 +22,71 @@
         {
             "width": 400,
             "title": "Before 2020",
-            "mark": "bar",
-            "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "axis": null
-                },
-                "x": {
-                    "field": "Before 2020",
-                    "type": "quantitative",
-                    "title": "population",
-                    "axis": {
-                        "format": "s"
-                    },
-                    "sort": "descending",
-                    "scale": {
-                        "domain": [
-                            -2000000,
-                            16000000
+            "transform": [
+                {
+                    "calculate": "'The population of Nigeria continued to # increase during the pandemic!'",
+                    "as": "nigeria_annotation"
+                }
+            ],
+            "layer": [
+                {
+                    "mark": "bar",
+                    "encoding": {
+                        "y": {
+                            "field": "Country",
+                            "type": "nominal",
+                            "axis": null
+                        },
+                        "x": {
+                            "field": "Before 2020",
+                            "type": "quantitative",
+                            "title": "population",
+                            "axis": {
+                                "format": "s"
+                            },
+                            "sort": "descending",
+                            "scale": {
+                                "domain": [
+                                    -2000000,
+                                    16000000
+                                ]
+                            }
+                        },
+                        "color": {
+                            "value": "skyBlue"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Country",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Before 2020",
+                                "type": "quantitative"
+                            },
+                            {
+                                "field": "After 2020",
+                                "type": "quantitative"
+                            }
                         ]
                     }
                 },
-                "color": {
-                    "value": "skyBlue"
-                },
-                "tooltip": [
-                    {
-                        "field": "Country",
-                        "type": "nominal"
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "left",
+                        "fontSize": 13,
+                        "xOffset": -180,
+                        "yOffset": 80,
+                        "lineBreak": "#"
                     },
-                    {
-                        "field": "Before 2020",
-                        "type": "quantitative"
-                    },
-                    {
-                        "field": "After 2020",
-                        "type": "quantitative"
+                    "encoding": {
+                        "text": {
+                            "field": "nigeria_annotation"
+                        }
                     }
-                ]
-            }
+                }
+            ]
         },
         {
             "width": 30,
@@ -87,45 +112,69 @@
         {
             "width": 400,
             "title": "After 2020",
-            "mark": "bar",
-            "encoding": {
-                "y": {
-                    "field": "Country",
-                    "title": null,
-                    "axis": null
-                },
-                "x": {
-                    "field": "After 2020",
-                    "type": "quantitative",
-                    "title": "population",
-                    "axis": {
-                        "format": "s"
-                    },
-                    "scale": {
-                        "domain": [
-                            -2000000,
-                            16000000
+            "transform": [
+                {
+                    "calculate": "'The population growth in China has dropped by 93.7%.'",
+                    "as": "china_annotation"
+                }
+            ],
+            "layer": [
+                {
+                    "mark": "bar",
+                    "encoding": {
+                        "y": {
+                            "field": "Country",
+                            "title": null,
+                            "axis": null
+                        },
+                        "x": {
+                            "field": "After 2020",
+                            "type": "quantitative",
+                            "title": "population",
+                            "axis": {
+                                "format": "s"
+                            },
+                            "scale": {
+                                "domain": [
+                                    -2000000,
+                                    16000000
+                                ]
+                            }
+                        },
+                        "color": {
+                            "value": "orange"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Country",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Before 2020",
+                                "type": "quantitative"
+                            },
+                            {
+                                "field": "After 2020",
+                                "type": "quantitative"
+                            }
                         ]
                     }
                 },
-                "color": {
-                    "value": "orange"
-                },
-                "tooltip": [
-                    {
-                        "field": "Country",
-                        "type": "nominal"
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "left",
+                        "yOffset": -100,
+                        "xOffset": -120,
+                        "fontSize": 13
                     },
-                    {
-                        "field": "Before 2020",
-                        "type": "quantitative"
-                    },
-                    {
-                        "field": "After 2020",
-                        "type": "quantitative"
+                    "encoding": {
+                        "text": {
+                            "field": "china_annotation"
+                        }
                     }
-                ]
-            }
+                }
+            ]
         }
     ],
     "config": {
